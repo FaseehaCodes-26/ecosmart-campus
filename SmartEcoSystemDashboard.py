@@ -243,7 +243,7 @@ st.sidebar.divider()
 st.sidebar.markdown("### 📱 Scan Live Dashboard")
 
 # Replace this with your actual deployed Streamlit public URL once it's live
-my_live_url = "https://your-app-name.streamlit.app" 
+my_live_url = "https://ecosmart-campus.streamlit.app" 
 
 # Generate QR code using Python's qrcode library
 qr = qrcode.QRCode(
