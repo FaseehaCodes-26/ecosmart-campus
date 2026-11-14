@@ -43,7 +43,7 @@ if lang == "العربية":
 else:
     title_text = "🌿 Smart Campus Resource Efficiency System"
     sub_text = "Liwa University | 5th Sustainability Competition (Fall 2026-2027)"
-    authors_text = "Project Authors: Fathima Faseeha Faizoor, Madiha Firdose Shiakh | Supervisor: Dr. Karamath Ateeq"
+    authors_text = "Project Authors: Fathima Faseeha Faizoor, Madiha Firdose Shaikh | Supervisor: Dr. Karamath Ateeq"
 
 st.markdown(f"### 🏛️ {sub_text}")
 st.title(title_text)
@@ -233,3 +233,30 @@ st.markdown("""
 1. **Pilot Phase:** Deploy in one campus building first to replace estimations with live measured sensor data.
 2. **Localization:** Fully integrated bilingual Arabic/English dynamic support.
 """)
+
+#QR
+import qrcode
+from io import BytesIO
+
+# --- Python-Generated QR Code ---
+st.sidebar.divider()
+st.sidebar.markdown("### 📱 Scan Live Dashboard")
+
+# Replace this with your actual deployed Streamlit public URL once it's live
+my_live_url = "https://your-app-name.streamlit.app" 
+
+# Generate QR code using Python's qrcode library
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_M,
+    box_size=10,
+    border=2,
+)
+qr.add_data(my_live_url)
+qr.make(fit=True)
+img = qr.make_image(fill_color="black", back_color="white")
+
+# Convert the image to bytes so Streamlit can display it
+buffer = BytesIO()
+img.save(buffer, format="PNG")
+st.sidebar.image(buffer.getvalue(), caption="Scan to test on your phone!", width=180)
